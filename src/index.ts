@@ -13,9 +13,10 @@ const BASE_URL = '/api/v1'
 const server = restify.createServer();
 
 // Endpoint raiz
-server.get('/', (req, res) => {
-    res.send('Bem-vindo!')
-})
+server.get('/', restify.plugins.serveStatic({
+    directory: './public',
+    default: 'index.html'
+}))
 
 // Cors
 server.use(cors({
@@ -25,18 +26,13 @@ server.use(cors({
     exposedHeaders: '*'
 }))
 
-// Resposta padrão para quaisquer outras requisições:
-server.use((req, res) => {
-    res.status(404)
-})
+// Importa os endpoints
+import * as products from './modules/product/product-router'
+
+// Aplica os endpoints
+products.setEndpoints(BASE_URL, server);
 
 // Inicia o sevidor
 server.listen(PORT, () => {
     console.log(`Servidor rodando com sucesso ${HOSTNAME}:${PORT}`)
 })
-
-// Importa os endpoints
-import * as products from './modules/produto/produto-router'
-
-// Aplica os endpoints
-products.setEndpoints(BASE_URL, server);
