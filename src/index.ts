@@ -29,10 +29,10 @@ server.use(cors({
 // Importa os endpoints
 import * as products from './modules/product/product-router'
 
-// Aplica os endpoints
+// Aplica os endpoints por módulo
 products.setEndpoints(BASE_URL, server);
 
 // Inicia o sevidor
 server.listen(PORT, () => {
-    console.log(`Servidor rodando com sucesso ${HOSTNAME}:${PORT}`)
+    console.log(`Servidor rodando com sucesso ${HOSTNAME}:${PORT}...`)
 })

@@ -2,11 +2,11 @@
 
 export default class Product {
 
-    public id: string = '';
+    public id?: string = '';
     public name: string = '';
     public price: number = 0.00;
 
-    constructor(id: string, name: string, price: number) {
+    constructor({ id, name, price }: { id?: string; name: string; price: number; }) {
         this.id = id
         this.name = name
         this.price = price

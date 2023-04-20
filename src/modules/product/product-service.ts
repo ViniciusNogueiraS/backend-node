@@ -15,7 +15,7 @@ export function getOne(id: string): Promise<DB_Product | null> {
       await prisma.$disconnect()
       resolve(product)
     })
-    .catch(async (e) => {
+    .catch(async (e: Error) => {
       await prisma.$disconnect()
       reject(e)
     })
@@ -32,7 +32,7 @@ export function getAll(): Promise<DB_Product[] | null> {
       await prisma.$disconnect()
       resolve(products)
     })
-    .catch(async (e) => {
+    .catch(async (e: Error) => {
       await prisma.$disconnect()
       reject(e)
     })
@@ -54,7 +54,7 @@ export function post(product: Product): Promise<DB_Product | null> {
       await prisma.$disconnect()
       resolve(product)
     })
-    .catch(async (e) => {
+    .catch(async (e: Error) => {
       await prisma.$disconnect()
       reject(e)
     })
@@ -77,7 +77,7 @@ export function update(product: Product): Promise<DB_Product | null> {
       await prisma.$disconnect()
       resolve(product)
     })
-    .catch(async (e) => {
+    .catch(async (e: Error) => {
       await prisma.$disconnect()
       reject(e)
     })
@@ -96,7 +96,7 @@ export function remove(id: string): Promise<DB_Product | null> {
       await prisma.$disconnect()
       resolve(product)
     })
-    .catch(async (e) => {
+    .catch(async (e: Error) => {
       await prisma.$disconnect()
       reject(e)
     })
