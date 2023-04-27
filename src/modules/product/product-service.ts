@@ -67,7 +67,7 @@ export function update(product: Product): Promise<DB_Product | null> {
   return new Promise((resolve, reject) => {
 
     return prisma.dB_Product.update({
-      where: {id: parseInt(product.id)},
+      where: {id: parseInt(product.id+'s')},
       data: {
         name: product.name,
         price: product.price
